@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+/* Crucial: Tells v4 to listen for the .dark class */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #ffffff; /* Pure white for light mode */
+  --foreground: #0f172a; /* Dark slate for text */
+}
+
+.dark {
+  --background: #020617; /* Deep black/blue for dark mode */
+  --foreground: #f8fafc; /* Off-white for text */
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s ease;
+}
