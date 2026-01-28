@@ -38,7 +38,6 @@ export default function ProjectsGallery() {
               key={i} 
               className="group relative h-[450px] overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 transition-all duration-300 shadow-sm hover:shadow-xl"
             >
-              {/* NEXT/IMAGE OPTIMIZATION */}
               <Image 
                 src={p.img} 
                 alt={p.title} 
@@ -47,12 +46,21 @@ export default function ProjectsGallery() {
                 className="object-cover transition-transform duration-700 group-hover:scale-110" 
               />
 
-              {/* Minimal Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 z-10">
-                <h3 className="text-white text-2xl font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              {/* MODIFIED OVERLAY: Visible on mobile, hover only on desktop */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent 
+                opacity-100 md:opacity-0 md:group-hover:opacity-100 
+                transition-all duration-500 flex flex-col justify-end p-8 z-10"
+              >
+                <h3 className="text-white text-2xl font-bold 
+                  translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 
+                  transition-transform duration-500"
+                >
                   {p.title}
                 </h3>
-                <p className="text-orange-400 font-medium translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                <p className="text-orange-400 font-medium 
+                  translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 
+                  transition-transform duration-500 delay-75"
+                >
                   {p.location}
                 </p>
               </div>
