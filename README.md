@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BuildIt Construction: Landing Page
 
-## Getting Started
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 
-First, run the development server:
+A responsive landing page for **BuildIt Construction**, a construction company offering residential building, commercial projects and site planning. Built with the Next.js App Router, React 19 and Tailwind CSS.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features
+
+- **Hero, About and Services** sections presenting the company and its three service lines
+- **Projects gallery** showcasing completed work
+- **Contact form** with loading and success states, posting to [Formspree](https://formspree.io)
+- **Light / dark theme** toggle with `next-themes`, remembered between visits
+- **Responsive layout** with a sticky navigation bar, from phone to desktop
+- Icons from `lucide-react`
+
+## Project structure
+
+```text
+src/
+  app/
+    layout.tsx        # metadata, fonts and theme provider
+    page.tsx          # assembles the page sections
+    globals.css       # Tailwind CSS
+  components/
+    Navbar.tsx  Hero.tsx  About.tsx  Services.tsx
+    ProjectsGallery.tsx  ContactForm.tsx  Footer.tsx
+    ThemeProvider.tsx  ThemeToggle.tsx
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Requires Node.js 20 or newer.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000).
 
-To learn more about Next.js, take a look at the following resources:
+Other scripts:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build   # production build
+npm run start   # serve the production build
+npm run lint    # ESLint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contact form setup
 
-## Deploy on Vercel
+The form posts to Formspree. Create a form at [formspree.io](https://formspree.io), then replace `your_id_here` in `src/components/ContactForm.tsx` with your form ID:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```ts
+fetch("https://formspree.io/f/your_id_here", { ... })
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+The site is a standard Next.js app and deploys to [Vercel](https://vercel.com) or any Node.js host with `npm run build` and `npm run start`.
+
+## License
+
+[MIT](LICENSE) © 2026 Cheah Ken Win
